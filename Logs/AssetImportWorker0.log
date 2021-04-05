@@ -72,3 +72,30 @@ Received Import Request.
   path: Assets/Player.cs
   artifactKey: Guid(393e87eb6ccb3445c86f0241c9341639) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Player.cs using Guid(393e87eb6ccb3445c86f0241c9341639) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bee656394f169714462b08986cfdd88') in 0.207916 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002004 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.45 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.997 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.45 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2661 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 174.5 MB.
+System memory in use after: 174.7 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 3121.
+Total: 1.374250 ms (FindLiveObjects: 0.154417 ms CreateObjectMapping: 0.057417 ms MarkObjects: 1.113958 ms  DeleteObjects: 0.047416 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 417.131032 seconds.
+  path: Assets/Player.cs
+  artifactKey: Guid(393e87eb6ccb3445c86f0241c9341639) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player.cs using Guid(393e87eb6ccb3445c86f0241c9341639) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a0948112745d0470c0a4c3c33719047') in 0.013810 seconds 
