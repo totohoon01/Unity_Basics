@@ -23,10 +23,10 @@
 <h3>Short Cuts</h3>
  
  > <b>Q,W,E,R,T : Tools</b><br>
- > <b>Ctrl + Shift + C : Console view</b>
- > <b>Ctrl + D : Duplicate</b>
- > <b>Ctrl + P : Play / Stop</b>
- > <b>Ctrl + Shift + P : Pause</b>
+ > <b>Ctrl + Shift + C : Console view</b><br>
+ > <b>Ctrl + D : Duplicate</b><br>
+ > <b>Ctrl + P : Play / Stop</b><br>
+ > <b>Ctrl + Shift + P : Pause</b><br>
  > <b>Ctrl + Alt / Alt : View 조정 가능
 
 <h3>Essential Tips</h3>
