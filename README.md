@@ -35,3 +35,29 @@
  > <b> 1 grid = 1 unit (X,Y,Z축 1단위)</b><br>
  > <b>Capsule모델 : 일반적인 사람 사이즈</b>
 ![capsulemodel.png](./img/capsulemodel.PNG)
+
+<h3>Material</h3>
+
+> Material폴더 : 예약명, 폴더를 만들고 Material 객체에 텍스쳐 할당
+> Albedo - 텍스쳐 정보, Normal Map - 간단한 쉐이딩
+
+<h3>Input</h3>
+
+> 입력장치의 인풋, Input Manager에서 설정가능.
+> 스크립트에서 Input 클래스로 받아올 수 있다.
+
+<i>code</i>
+
+```
+float h = Input.GexAxis("Horizontal); // 이름이 정해져있음.
+float v = Input.GexAxis("Vertical);
+
+Vector3 moveDir = Vector3.forward * v + Vector3.right *  h; //앞뒤, 좌우
+transform.Translate(moveDir.nomalized * 0.1f, Space.Self); // Space.Self : 객체를 기준으로 이동(기본 값)
+
+//Vector3.forward == new Vector3(0,0,1)
+//Vector3.up      == new Vector3(0,1,0)
+//Vector3.right   == new Vector3(1,0,0)
+//Vector3.one  == new Vector3(1,1,1)
+//Vector3.zero == new Vector3(0,0,0)
+```
