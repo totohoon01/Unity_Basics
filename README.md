@@ -31,7 +31,7 @@
 
 <h3>Essential Tips</h3>
  
- > <b> Pivot, Local, Hierarchy-Sorting</b>
- > <b> 1 grid = 1 unit (X,Y,Z축 1단위)</b>
+ > <b> Pivot, Local, Hierarchy-Sorting</b><br>
+ > <b> 1 grid = 1 unit (X,Y,Z축 1단위)</b><br>
  > <b>Capsule모델 : 일반적인 사람 사이즈</b>
 ![capsulemodel.png](./img/capsulemodel.PNG)
