@@ -49,8 +49,8 @@
 <i>code</i>
 
 ```
-float h = Input.GexAxis("Horizontal); // 이름이 정해져있음.
-float v = Input.GexAxis("Vertical);
+float h = Input.GetAxis("Horizontal); // 이름이 정해져있음.
+float v = Input.GetAxis("Vertical);
 
 Vector3 moveDir = Vector3.forward * v + Vector3.right *  h; //앞뒤, 좌우
 transform.Translate(moveDir.nomalized * 0.1f, Space.Self); // Space.Self : 객체를 기준으로 이동(기본 값)
