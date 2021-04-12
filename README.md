@@ -1,5 +1,10 @@
 <h2>2021-04-05 ~ </h2>
 
+복습 To do! 🤩
+
+- [ ] Bullet Model, Anim
+- [ ] Barrel Model Explode Anim
+
 <h3>Terms</h3>
 
 > <ul>
