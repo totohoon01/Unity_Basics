@@ -104,6 +104,7 @@ if(lb >0){
 > <li>is Kinematic : 스크립트를 이용해 움직임을 적용(물리엔진 작용x)</li>
 > <li>interpolate : 물리엔진의 계산값, 렌더링 프레임의 차이에 따른 jiterring 발생, 보정해주는 옵션</li>
 > <li>Collision : 속도가 너무 빠른 물체 - Discrete로 감지 못할수도 있음. 밑에 옵션은 잘 감지하는 대신 부하가 커짐.</li>
+
 > </ul>
 > <h4>Collision</h4>
 > sphere - capsule - box 순으로 빠름
