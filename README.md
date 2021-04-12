@@ -36,9 +36,9 @@
  > <b>Capsule모델 : 일반적인 사람 사이즈</b>
 ![capsulemodel.png](./img/capsulemodel.PNG)
 
-<h3>Material</h3>
+<h3>Materials</h3>
 
-> Material폴더 : 예약명, 폴더를 만들고 Material 객체에 텍스쳐 할당
+> Materials폴더 : 예약명(Materials), 폴더를 만들고 Material 객체에 텍스쳐 할당
 > Albedo - 텍스쳐 정보, Normal Map - 간단한 쉐이딩
 
 <h3>Input</h3>
@@ -61,3 +61,39 @@ transform.Translate(moveDir.nomalized * 0.1f, Space.Self); // Space.Self : 객�
 //Vector3.one  == new Vector3(1,1,1)
 //Vector3.zero == new Vector3(0,0,0)
 ```
+
+<h3>Animation Type</h3>
+<ul>
+    <li> <b>Legacy</b> (가벼운 모델, 코드로 지정함)</li>
+    <li> <b>Mecanim</b>
+        <ul>
+        <li> <b>Hummanoid</b> : 사람</li>
+        <li> <b>Generic</b> : 동물 등등</li>
+        (동적 애니메이션 구성 가능)
+        </ul>
+    </li>
+    <br>
+    <li> <b>Animation</b> Componet : Legacy</li>
+    <li> <b>Animator</b> Componet : Mecanim</li>
+</ul>
+
+<h3>Animation 설정</h3>
+code
+
+```
+private float lb;
+public Animation anim;
+anim = GetComponent<Animation>();
+lb = Input.GetAxis("Fire1"); //Project Setting -> Input Manager(이름 및 입력받을 키 지정)
+if(lb >0){
+    anim.CrossFade("IdleFireSMG"); //IdleFireSMG라는 애니메이션 동작, CrossFade -> 자연스러운 전환
+}
+```
+
+<h3>Physics</h3>
+
+> Mass : 무게
+> Drag : 마찰력
+> is Kinematic : 스크립트를 이용해 움직임을 적용(물리엔진 작용x)
+> interpolate : 물리엔진의 계산값, 렌더링 프레임의 차이에 따른 jiterring 발생, 보정해주는 옵션
+> Collision : 속도가 너무 빠른 물체 - Discrete로 감지 못할수도 있음. 밑에 옵션은 잘 감지하는 대신 부하가 커짐.
