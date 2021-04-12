@@ -38,7 +38,7 @@
 
 <h3>Material</h3>
 
-> Material폴더 : 예약명, 폴더를 만들고 Material 객체에 텍스쳐 할당
+> Materials폴더 : 예약명(Materials), 폴더를 만들고 Material 객체에 텍스쳐 할당
 > Albedo - 텍스쳐 정보, Normal Map - 간단한 쉐이딩
 
 <h3>Input</h3>
