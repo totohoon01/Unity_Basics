@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class BerrelCtrl : MonoBehaviour
 {
-    private int hitCount = 0;
+    //Audio Event
     private new AudioSource audio;
     public AudioClip audioSource;
-
+    //Renderer Event
     private new MeshRenderer renderer;
     public Texture[] textures;
-
+    //Exploding Event
+    private int hitCount = 0;
     public GameObject expEffect;
 
     void Start()
     {
-
         audio = GetComponent<AudioSource>();
 
         renderer = GetComponentInChildren<MeshRenderer>();
@@ -28,7 +28,7 @@ public class BerrelCtrl : MonoBehaviour
         if (collision.collider.CompareTag("BULLET"))
         {
             hitCount++;
-            if(hitCount >= 3)
+            if (hitCount >= 3)
             {
                 ExplodeBarrel();
             }
@@ -45,6 +45,6 @@ public class BerrelCtrl : MonoBehaviour
         audio.PlayOneShot(audioSource, 1.0f);
         //Exp Effect
         GameObject obj = Instantiate(expEffect, this.transform.position, Quaternion.identity);
-
+        Destroy(obj, 4.0f);
     }
 }
