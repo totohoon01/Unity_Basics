@@ -4,7 +4,7 @@
 
 - [x] Bullet Model, Anim
 - [x] 쿼터니온, Bullet Spark 이펙트
-- [ ] Barrel Model Explode Anim
+- [x] Barrel Model Explode Anim
 - [ ] 몬스터 애니메이터 적용
 - [ ] SkyBox 모델
 

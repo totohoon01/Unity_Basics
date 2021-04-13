@@ -7,7 +7,7 @@ public class PlayerCtrl : MonoBehaviour
     //Transform Component
     private Transform tr;
     private float moveSpeed = 5.0f;
-    private float turnSpeed = 20.0f;
+    private float turnSpeed = 80.0f;
 
     //Animation Componet
     private Animation anim;
