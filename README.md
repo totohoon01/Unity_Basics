@@ -45,7 +45,7 @@
  > <b> Pivot, Local, Hierarchy-Sorting</b><br>
  > <b> 1 grid = 1 unit (X,Y,Z축 1단위)</b><br>
  > <b>Capsule모델 : 일반적인 사람 사이즈</b>
-![capsulemodel.png](./img/capsulemodel.PNG)
+![capsulemodel.png](./img/capsulemodel.png)
 
 <h3>Materials</h3>
 
@@ -161,8 +161,5 @@ if(lb >0)
     <li><b>SkyBox Dome: </b> 한장의 이미지를 돔형태로 둘러싸는 형태, 왜곡 발생 가능성</li>
     <li><b>Procedural Sky: </b> 색만 사용해서 하늘을 표현, 유니티 디폴트</li>
  </ol>
-
-![skybox.png](./img/skybox.PNG)
-![skydome.png](./img/skydome.PNG)
 
 > <b>Window -> Rendering -> Lightning -> Envioronment -> Sky Box Materials<br>
