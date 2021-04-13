@@ -166,3 +166,4 @@ if(lb >0)
 ![skydome.png](./img/skydome.png)
 
 > <b>Window -> Rendering -> Lightning -> Envioronment -> Sky Box Materials<br>
+> ㄴ
