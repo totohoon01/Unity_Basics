@@ -35,7 +35,8 @@ public class PlayerCtrl : MonoBehaviour
         RotatePlayer();
         PlayAnim();
     }
-    void MovePlayer(){
+    void MovePlayer()
+    {
         Vector3 moveDir = Vector3.forward * v + Vector3.right * h;
         tr.Translate(moveDir.normalized * moveSpeed * Time.deltaTime);
     }
@@ -46,30 +47,30 @@ public class PlayerCtrl : MonoBehaviour
     }
     void PlayAnim()
     {
-        if(v >= 0.1f)
+        if (v >= 0.1f)
         {
-            anim.CrossFade("RunF");
+            anim.CrossFade("RunF", 0.25f);
         }
-        else if(v <= -0.1f)
+        else if (v <= -0.1f)
         {
-            anim.CrossFade("RunB");
+            anim.CrossFade("RunB", 0.25f);
         }
-        else if(h >= 0.1f)
+        else if (h >= 0.1f)
         {
-            anim.CrossFade("RunL");
+            anim.CrossFade("RunL", 0.25f);
         }
-        else if(h <= -0.1f)
+        else if (h <= -0.1f)
         {
-            anim.CrossFade("RunR");
+            anim.CrossFade("RunR", 0.25f);
         }
         else
         {
-            anim.CrossFade("Idle");
+            anim.CrossFade("Idle", 0.25f);
         }
 
         if (Input.GetAxis("Fire1") > 0)
         {
-            anim.CrossFade("IdleFireSMG");
+            anim.CrossFade("IdleFireSMG", 0.25f);
         }
     }
 }

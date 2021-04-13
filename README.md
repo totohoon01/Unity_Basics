@@ -4,6 +4,7 @@
 
 - [ ] Bullet Model, Anim
 - [ ] Barrel Model Explode Anim
+- [ ] 쿼터니온, Bullet Spark 이펙트
 
 <h3>Terms</h3>
 
@@ -36,6 +37,7 @@
 > <li><b>Ctrl + Shift + P : Pause</b><br></li>
 > <li><b>Ctrl + Alt / Alt : View 조정 가능</b><br></li>
 > <li><b>Shift + F : 특정 오브젝트 포커싱</b></li>
+> <li><b>Ctrl + Shift + A : Add Component</b></li>
 > </ul>
 
 <h3>Essential Tips</h3>
@@ -47,7 +49,9 @@
 
 <h3>Materials</h3>
 
-> Materials폴더 : 예약명(Materials), 폴더를 만들고 Material 객체에 텍스쳐 할당<br>
+> <b>Materials</b> 폴더 : 예약명(<b>Materials</b>), 폴더를 만들고 Material 객체에 텍스쳐 할당<br>
+> 텍스쳐(<b>Image</b>)를 <b>Scene</b>에 직접 넣으면 <b>Materials</b>폴더가 있는지 검사해서 자동으로 material 생성<br>
+> shader -> mobile >> particle >> additive(검정색을 투명으로)<br>
 > Albedo - 텍스쳐 정보, Normal Map - 간단한 쉐이딩<br>
 > Material 오브젝트 안에 옵션이 있음.
 
@@ -59,17 +63,57 @@
 <i>code</i>
 
 ```
-float h = Input.GetAxis("Horizontal); // 이름이 정해져있음.
+// 이름이 정해져있음.
+float h = Input.GetAxis("Horizontal);
 float v = Input.GetAxis("Vertical);
 
-Vector3 moveDir = Vector3.forward * v + Vector3.right *  h; //앞뒤, 좌우
-transform.Translate(moveDir.nomalized * 0.1f, Space.Self); // Space.Self : 객체를 기준으로 이동(기본 값)
+//앞뒤, 좌우
+Vector3 moveDir = Vector3.forward * v + Vector3.right *  h;
+
+// Space.Self : 객체를 기준으로 이동(기본 값)
+transform.Translate(moveDir.nomalized * 0.1f, Space.Self);
 
 //Vector3.forward == new Vector3(0,0,1)
 //Vector3.up      == new Vector3(0,1,0)
 //Vector3.right   == new Vector3(1,0,0)
 //Vector3.one  == new Vector3(1,1,1)
 //Vector3.zero == new Vector3(0,0,0)
+```
+
+<h3>Physics</h3>
+
+> <ul>
+> <li>Mass : 무게</li>
+> <li>Drag : 마찰력</li>
+> <li>is Kinematic : 스크립트를 이용해 움직임을 적용(물리엔진 작용x)</li>
+> <li>interpolate : 물리엔진의 계산값, 렌더링 프레임의 차이에 따른 jiterring 발생, 보정해주는 옵션</li>
+> <li>Collision : 속도가 너무 빠른 물체 - Discrete로 감지 못할수도 있음. 밑에 옵션은 잘 감지하는 대신 부하가 커짐.</li>
+> </ul>
+> <h4>Collision</h4>
+> sphere - capsule - box 순으로 빠름<br>
+> 충돌 콜백 발생 조건 : 두 물체에 모두 collider 존재, 움직이는 물체 -> RigidBody 컴포넌트<br>
+> <h4> Quaternion </h4>
+> (x, y, z, w) -> 4차원 벡터, 3차원상 회전에서 발생할 수 있는 짐벌락을 방지할 수 있는 기능<br>
+> 내부적으로 Degree --> Quaternion 자동 변환<br>
+> LookLotation : 벡터를 쿼터니온으로<br>
+> Euler : 각도를 쿼터니온으로<br>
+
+<h3>Coroutine</h3>
+
+> <b><u>단일 쓰레드를 멀티 쓰레드처럼 사용</u></b><br>
+> 메인 루틴 -> 서브루틴(1/10) <b>Yield!</b> -> 메인 루틴 -> 서브루틴(2/10) <b>Yield!</b> <b>...</b><br>
+> 게임 중 다운로드....<br>
+
+<i>code</i>
+
+```
+StartCoroutine(ShowMuzzleFlash());
+IEnumerator ShowMuzzleFlash()
+{
+    logic 1
+    yield CONDITION 조건만족할때까지 메인루틴 진행
+    logic 2 <-- 여기로 바로 들어온다.
+}
 ```
 
 <h3>Animation Type</h3>
@@ -88,28 +132,37 @@ transform.Translate(moveDir.nomalized * 0.1f, Space.Self); // Space.Self : 객�
 >     <li> <b>Animator</b> Componet : Mecanim</li>
 > </ul>
 
-<h3>Animation 설정</h3>
+<h3>Animation(Legacy)</h3>
 <i>code</i>
 
 ```
 private float lb;
 public Animation anim;
 anim = GetComponent<Animation>();
-lb = Input.GetAxis("Fire1"); //Project Setting -> Input Manager(이름 및 입력받을 키 지정)
-if(lb >0){
-    anim.CrossFade("IdleFireSMG"); //IdleFireSMG라는 애니메이션 동작, CrossFade -> 자연스러운 전환
+
+//Project Setting -> Input Manager(이름 및 입력받을 키 지정)
+lb = Input.GetAxis("Fire1");
+if(lb >0)
+{
+    //IdleFireSMG라는 애니메이션 동작, CrossFade -> 자연스러운 전환
+    anim.CrossFade("IdleFireSMG");
 }
 ```
 
-<h3>Physics</h3>
+<h3>Animator(Generic, Humanoid)</h3>
 
-> <ul>
-> <li>Mass : 무게</li>
-> <li>Drag : 마찰력</li>
-> <li>is Kinematic : 스크립트를 이용해 움직임을 적용(물리엔진 작용x)</li>
-> <li>interpolate : 물리엔진의 계산값, 렌더링 프레임의 차이에 따른 jiterring 발생, 보정해주는 옵션</li>
-> <li>Collision : 속도가 너무 빠른 물체 - Discrete로 감지 못할수도 있음. 밑에 옵션은 잘 감지하는 대신 부하가 커짐.</li>
-> </ul>
-> <h4>Collision</h4>
-> sphere - capsule - box 순으로 빠름<br>
-> 충돌 콜백 발생 조건 : 두 물체에 모두 collider 존재, 움직이는 물체 -> RigidBody 컴포넌트<br>
+> 아바타 + 모션 적용(앵클 기반으로 유니티 내부에서 애니메이션을 적응시키는듯?)<br>
+> 오브젝트에 컨트롤러를 적용하고 컨트롤러에 모션 등록<br>
+
+### 하늘 표현
+
+ <ol>
+    <li><b>SkyBox Model: </b> 6면체에 각각의 View를 구현 <br>6장의 영상 >> 부하가 크다.</li>
+    <li><b>SkyBox Dome: </b> 한장의 이미지를 돔형태로 둘러싸는 형태, 왜곡 발생 가능성</li>
+    <li><b>Procedural Sky: </b> 색만 사용해서 하늘을 표현, 유니티 디폴트</li>
+ </ol>
+
+![skybox.png](./img/skybox.PNG)
+![skydome.png](./img/skydome.PNG)
+
+> <b>Window -> Rendering -> Lightning -> Envioronment -> Sky Box Materials<br>
