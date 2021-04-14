@@ -175,3 +175,6 @@ if(lb >0)
 > Has Exit Time : 현재 애니매이션 끝나야 넘어감
 
 ![Controller.PNG](./img/Controller.PNG)
+
+Nullable -> ?
+a()?.b(); a()가 null이 아니면 b()를 실행.
