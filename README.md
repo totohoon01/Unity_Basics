@@ -5,8 +5,9 @@
 - [x] Bullet Model, Anim
 - [x] 쿼터니온, Bullet Spark 이펙트
 - [x] Barrel Model Explode Anim
-- [ ] 몬스터 애니메이터 적용
-- [ ] SkyBox 모델
+- [x] 몬스터 애니메이터 적용
+- [x] SkyBox 모델
+- [x] 몬스터 네비게이션 적용
 
 <h3>Terms</h3>
 
@@ -173,6 +174,23 @@ if(lb >0)
 > Has Exit Time : 현재 애니매이션 끝나야 넘어감
 
 ![Controller.PNG](./img/Controller.PNG)
+
+### 네비게이션
+
+> Route Finding 알고리즘<br>
+> 지형지물에 static 옵션 중 Nav를 적용하고, 움직이려는 오브젝트에 agent속성 부여<br>
+> agent가 지형지물 피해서 최적의 경로로 움직인다.<br>
+
+<i>code</i>
+
+```
+using UnityEngine.AI; //네비게이션 관련 패키지
+...
+private NavMeshAgent agent;
+agent = GetComponent<NavMeshAgent>();
+agent.SetDestination(playerTr.position); //에이전트를 움직임
+agent.isStopped = true; //움직임 멈춤?
+```
 
 Nullable -> int? a = null;<br>
 a에 null값 할당하는 것을 허용함, int와는 다른 데이터형식<br>

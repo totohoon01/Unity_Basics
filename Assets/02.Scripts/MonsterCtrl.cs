@@ -18,8 +18,8 @@ public class MonsterCtrl : MonoBehaviour
     private float attactDist = 2.0f;
     private float hp = 100.0f;
 
-    private readonly int hashTrace = Animator.StringToHash("isTrace");
-    private readonly int hashAttack = Animator.StringToHash("isAttack");
+    private readonly int hashTrace = Animator.StringToHash("isTrace"); //isTrace라는 이름을 가진 해쉬의 ID를 가져옴
+    private readonly int hashAttack = Animator.StringToHash("isAttack"); //매번 이름으로 찾는 것에 비해 속도가 빠르다.
     private readonly int hashHit = Animator.StringToHash("Hit");
     private readonly int hashDie = Animator.StringToHash("isDie");
 
@@ -77,7 +77,7 @@ public class MonsterCtrl : MonoBehaviour
                 case STATE.TRACE:
                     agent.isStopped = false;
                     agent.SetDestination(playerTr.position);
-                    anim.SetBool(hashTrace, true);
+                    anim.SetBool(hashTrace, true); //불 셋
                     anim.SetBool(hashAttack, false);
                     break;
 
@@ -88,7 +88,7 @@ public class MonsterCtrl : MonoBehaviour
                 case STATE.DIE:
                     anim.SetTrigger("isDie");
                     isDie = true;
-                    GetComponent<CapsuleCollider>().enabled = false;
+                    GetComponent<CapsuleCollider>().enabled = false; //캡슐 컬라이더 비활성화
                     break;
             }
             yield return new WaitForSeconds(0.3f);
@@ -99,7 +99,7 @@ public class MonsterCtrl : MonoBehaviour
     {
         if (coll.collider.CompareTag("BULLET"))
         {
-            anim.SetTrigger("Hit");
+            anim.SetTrigger("Hit"); //트리거 실행
             hp -= 20.0f;
             Destroy(coll.gameObject);
             if (hp <= 0.0f)
