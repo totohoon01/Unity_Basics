@@ -103,9 +103,12 @@ transform.Translate(moveDir.nomalized * 0.1f, Space.Self);
 
 <h3>Coroutine</h3>
 
-> <b><u>단일 쓰레드를 멀티 쓰레드처럼 사용</u></b><br>
-> 메인 루틴 -> 서브루틴(1/10) <b>Yield!</b> -> 메인 루틴 -> 서브루틴(2/10) <b>Yield!</b> <b>...</b><br>
-> 게임 중 다운로드....<br>
+> - <b><u>단일 쓰레드를 멀티 쓰레드처럼 사용</u></b><br>
+>   메인 루틴<br>
+>   서브루틴(1/10)<br> > <b>Yield!</b><br>
+>   메인 루틴<br>
+>   서브루틴(2/10)<br> > <b>Yield!</b><br> > <b>...</b><br>
+>   ex)게임 중 다운로드....<br>
 
 <i>code</i>
 
@@ -167,7 +170,7 @@ if(lb >0)
 
 <h3>Animator(Generic, Humanoid)</h3>
 
-> 아바타 + 모션 적용(앵클 기반으로 유니티 내부에서 애니메이션을 적응시키는듯?)<br>
+> 아바타 + 모션 적용(Join를 기반으로 유니티 내부에서 애니메이션을 적응)<br>
 > 오브젝트에 컨트롤러를 적용하고 컨트롤러에 모션 등록<br>
 > Finite State Machine(유한상태머신, FSM)의 형태로 구현<br>
 >
@@ -191,7 +194,3 @@ agent = GetComponent<NavMeshAgent>();
 agent.SetDestination(playerTr.position); //에이전트를 움직임
 agent.isStopped = true; //움직임 멈춤?
 ```
-
-Nullable -> int? a = null;<br>
-a에 null값 할당하는 것을 허용함, int와는 다른 데이터형식<br>
-a()?.b(); a()가 null이 아니면 b()를 실행.
