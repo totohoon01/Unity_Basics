@@ -118,6 +118,14 @@ IEnumerator ShowMuzzleFlash()
 }
 ```
 
+### SkyBox
+
+ <ol>
+    <li><b>SkyBox Model: </b> 6면체에 각각의 View를 구현 <br>6장의 영상 >> 부하가 크다.</li>
+    <li><b>SkyBox Dome: </b> 한장의 이미지를 돔형태로 둘러싸는 형태, 왜곡 발생 가능성</li>
+    <li><b>Procedural Sky: </b> 색만 사용해서 하늘을 표현, 유니티 디폴트</li>
+ </ol>
+
 <h3>Animation Type</h3>
 
 > <ul>
@@ -151,20 +159,10 @@ if(lb >0)
 }
 ```
 
-### 하늘 표현
-
- <ol>
-    <li><b>SkyBox Model: </b> 6면체에 각각의 View를 구현 <br>6장의 영상 >> 부하가 크다.</li>
-    <li><b>SkyBox Dome: </b> 한장의 이미지를 돔형태로 둘러싸는 형태, 왜곡 발생 가능성</li>
-    <li><b>Procedural Sky: </b> 색만 사용해서 하늘을 표현, 유니티 디폴트</li>
- </ol>
-
 ![skybox.PNG](./img/skybox.PNG)
 ![skydome.PNG](./img/skydome.PNG)
 
 > <b>Window -> Rendering -> Lightning -> Envioronment -> Sky Box Materials<br>
-
-###
 
 <h3>Animator(Generic, Humanoid)</h3>
 
@@ -176,5 +174,6 @@ if(lb >0)
 
 ![Controller.PNG](./img/Controller.PNG)
 
-Nullable -> ?
+Nullable -> int? a = null;<br>
+a에 null값 할당하는 것을 허용함, int와는 다른 데이터형식<br>
 a()?.b(); a()가 null이 아니면 b()를 실행.

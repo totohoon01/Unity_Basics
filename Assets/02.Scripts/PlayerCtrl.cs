@@ -7,7 +7,7 @@ public class PlayerCtrl : MonoBehaviour
     //Transform Component
     private Transform tr;
     private float moveSpeed = 5.0f;
-    private float turnSpeed = 80.0f;
+    private float turnSpeed;
 
     //Animation Componet
     private Animation anim;
@@ -17,11 +17,15 @@ public class PlayerCtrl : MonoBehaviour
     private float v;
     private float r;
 
-    void Start()
+    IEnumerator Start()
     {
+        turnSpeed = 0.0f;
         tr = GetComponent<Transform>();
         anim = GetComponent<Animation>();
         anim.Play("Idle");
+
+        yield return new WaitForSeconds(0.2f);
+        turnSpeed = 80.0f;
     }
 
     // Update is called once per frame
