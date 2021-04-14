@@ -47,7 +47,7 @@
  > <b> Pivot, Local, Hierarchy-Sorting</b><br>
  > <b> 1 grid = 1 unit (X,Y,Z축 1단위)</b><br>
  > <b>Capsule모델 : 일반적인 사람 사이즈</b>
-![capsulemodel.png](./img/capsulemodel.png)
+![capsulemodel.PNG](./img/capsulemodel.PNG)
 
 <h3>Materials</h3>
 
@@ -151,11 +151,6 @@ if(lb >0)
 }
 ```
 
-<h3>Animator(Generic, Humanoid)</h3>
-
-> 아바타 + 모션 적용(앵클 기반으로 유니티 내부에서 애니메이션을 적응시키는듯?)<br>
-> 오브젝트에 컨트롤러를 적용하고 컨트롤러에 모션 등록<br>
-
 ### 하늘 표현
 
  <ol>
@@ -164,4 +159,19 @@ if(lb >0)
     <li><b>Procedural Sky: </b> 색만 사용해서 하늘을 표현, 유니티 디폴트</li>
  </ol>
 
+![skybox.PNG](./img/skybox.PNG)
+![skydome.PNG](./img/skydome.PNG)
+
 > <b>Window -> Rendering -> Lightning -> Envioronment -> Sky Box Materials<br>
+
+###
+
+<h3>Animator(Generic, Humanoid)</h3>
+
+> 아바타 + 모션 적용(앵클 기반으로 유니티 내부에서 애니메이션을 적응시키는듯?)<br>
+> 오브젝트에 컨트롤러를 적용하고 컨트롤러에 모션 등록<br>
+> Finite State Machine(유한상태머신, FSM)의 형태로 구현<br>
+>
+> Has Exit Time : 현재 애니매이션 끝나야 넘어감
+
+![Controller.PNG](./img/Controller.PNG)
