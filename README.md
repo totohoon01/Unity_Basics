@@ -211,10 +211,17 @@ OnPlayerDie();
 ```
 
 ### 모델 간소화하기
+
 > 모델의 각 부분 : gameObject로 구성, 각각 transform 컴포넌트가 존재 -> 물리엔진 불필요한 계산<br>
 > Model -> Rig -> Optimize Game Object에서 불필요한 오브젝트 hide.<br>
 
 ### Layer 
+
 > 오브젝트에 2개 이상의 collider가 존재할 경우, 오브젝트 내부 collider간 충돌 발생<br>
 > 레이어를 추가해 collider에 레이어를 분리.
 > Project Settings -> Physics -> Layer Collision Matrix 수정
+
+### LOD
+
+> 오브젝트와 카메라의 거리에 따라서 렌더링하는 메쉬를 변경<br>
+> LOD Group 컴포넌트<br>
