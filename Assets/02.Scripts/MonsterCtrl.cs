@@ -96,7 +96,9 @@ public class MonsterCtrl : MonoBehaviour
                 case STATE.DIE:
                     anim.SetTrigger("isDie");
                     isDie = true;
+                    agent.isStopped = true;
                     GetComponent<CapsuleCollider>().enabled = false; //캡슐 컬라이더 비활성화
+                    Invoke("ReturnMonsterToPool", 3.0f);
                     break;
             }
             yield return new WaitForSeconds(0.3f);
@@ -122,5 +124,15 @@ public class MonsterCtrl : MonoBehaviour
         StopAllCoroutines();
         agent.isStopped = true;
         anim.SetTrigger("PlayerDie");
+    }
+    void ReturnMonsterToPool()
+    {
+        this.gameObject.SetActive(false);
+        agent.isStopped = false;
+        isDie = false;
+        hp = 100.0f;
+        state = STATE.IDLE;
+        GetComponent<CapsuleCollider>().enabled = true;
+
     }
 }
