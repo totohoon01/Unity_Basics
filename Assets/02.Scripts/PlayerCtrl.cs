@@ -93,7 +93,7 @@ public class PlayerCtrl : MonoBehaviour
             curHp -= 10.0f;
             if (curHp <= 0.0f)
             {
-                //플레이어가 죽었을때 발생하는 이벤트()
+                GameManager.instance.isGameOver = true;
                 OnPlayerDie();
             }
         }
