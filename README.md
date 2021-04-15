@@ -1,13 +1,18 @@
+✔ Thing to do.
+
+- [ ] C#
+- [ ] Git
+- [ ] Python(Algorithm)
+
+✔ Recaps
+
+- [ ] 몬스터 동적 생성(랜덤한 위치에)
+- [ ] 싱글턴
+- [ ] 풀링
+
+<hr>
+
 <h2>2021-04-05 ~ </h2>
-
-복습 To do! 🤩
-
-- [x] Bullet Model, Anim
-- [x] 쿼터니온, Bullet Spark 이펙트
-- [x] Barrel Model Explode Anim
-- [x] 몬스터 애니메이터 적용
-- [x] SkyBox 모델
-- [x] 몬스터 네비게이션 적용
 
 <h3>Terms</h3>
 
@@ -194,3 +199,22 @@ agent = GetComponent<NavMeshAgent>();
 agent.SetDestination(playerTr.position); //에이전트를 움직임
 agent.isStopped = true; //움직임 멈춤?
 ```
+
+isKinematic : 물리엔진 계산 ㄴㄴ -> UseGravity도 같이 비활성화됨.
+isTrigger : 물리적 반동효과 ㄴㄴ
+
+```
+public delegate void delgater(); -> 델리게이트를 관리하는 delgater 타입
+public delgater OnPlayerDie -> (함수를 저장하는) 변수
+OnPlayerDie += this.YouWin;
+OnPlayerDie();
+```
+
+### 모델 간소화하기
+> 모델의 각 부분 : gameObject로 구성, 각각 transform 컴포넌트가 존재 -> 물리엔진 불필요한 계산<br>
+> Model -> Rig -> Optimize Game Object에서 불필요한 오브젝트 hide.<br>
+
+### Layer 
+> 오브젝트에 2개 이상의 collider가 존재할 경우, 오브젝트 내부 collider간 충돌 발생<br>
+> 레이어를 추가해 collider에 레이어를 분리.
+> Project Settings -> Physics -> Layer Collision Matrix 수정

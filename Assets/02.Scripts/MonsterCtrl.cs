@@ -14,7 +14,7 @@ public class MonsterCtrl : MonoBehaviour
     private NavMeshAgent agent;
 
     private bool isDie;
-    private float traceDist = 10.0f;
+    private float traceDist = 50.0f;
     private float attactDist = 2.0f;
     private float hp = 100.0f;
 
@@ -23,6 +23,14 @@ public class MonsterCtrl : MonoBehaviour
     private readonly int hashHit = Animator.StringToHash("Hit");
     private readonly int hashDie = Animator.StringToHash("isDie");
 
+    void OnEnable()
+    {
+        PlayerCtrl.OnPlayerDie += YouWin;
+    }
+    void OnDisable()
+    {
+        PlayerCtrl.OnPlayerDie -= YouWin;
+    }
     void Start()
     {
         monsterTr = GetComponent<Transform>();
@@ -107,5 +115,12 @@ public class MonsterCtrl : MonoBehaviour
                 state = STATE.DIE;
             }
         }
+    }
+
+    void YouWin()
+    {
+        StopAllCoroutines();
+        agent.isStopped = true;
+        anim.SetTrigger("PlayerDie");
     }
 }

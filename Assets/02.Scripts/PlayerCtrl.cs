@@ -17,6 +17,14 @@ public class PlayerCtrl : MonoBehaviour
     private float v;
     private float r;
 
+    //Player HP comp
+    private float initHp = 100.0f;
+    private float curHp = 100.0f;
+
+    //Player Die Event
+    public delegate void PlayerDieHandler();
+    public static event PlayerDieHandler OnPlayerDie;
+
     IEnumerator Start()
     {
         turnSpeed = 0.0f;
@@ -75,6 +83,19 @@ public class PlayerCtrl : MonoBehaviour
         if (Input.GetAxis("Fire1") > 0)
         {
             anim.CrossFade("IdleFireSMG", 0.25f);
+        }
+    }
+
+    void OnTriggerEnter(Collider coll)
+    {
+        if (curHp > 0.0f && coll.CompareTag("PUNCH"))
+        {
+            curHp -= 10.0f;
+            if (curHp <= 0.0f)
+            {
+                //플레이어가 죽었을때 발생하는 이벤트()
+                OnPlayerDie();
+            }
         }
     }
 }
