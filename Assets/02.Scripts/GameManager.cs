@@ -8,17 +8,33 @@ public class GameManager : MonoBehaviour
     private float respawnTime = 3.0f;
     public GameObject monsterPrefab;
 
-    private Transform[] points;
+    private Transform[] points; //(a)
     public bool isGameOver;
+
+    //싱글턴 패턴
+    private static GameManager instance = null;
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else if (instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
 
     void Start()
     {
         monsterPrefab = Resources.Load<GameObject>("monster");
         points = GameObject.Find("SpawnPointsGroup").GetComponentsInChildren<Transform>();
-        StartCoroutine(GenerateMonster());
+        StartCoroutine(GenerateMonster()); //(a)
     }
 
-    IEnumerator GenerateMonster()
+    IEnumerator GenerateMonster() //(a)
     {
         yield return new WaitForSeconds(2.0f);
         while (!isGameOver)
