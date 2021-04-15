@@ -212,6 +212,8 @@ OnPlayerDie();
 > 모델의 각 부분 : gameObject로 구성, 각각 transform 컴포넌트가 존재 -> 물리엔진 불필요한 계산<br>
 > Model -> Rig -> Optimize Game Object에서 불필요한 오브젝트 hide.<br>
 
+![optimal.PNG](./img/optimal.PNG)
+
 ### Layer 
 
 > 오브젝트에 2개 이상의 collider가 존재할 경우, 오브젝트 내부 collider간 충돌 발생<br>
