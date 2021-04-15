@@ -6,9 +6,7 @@
 
 ✔ Recaps
 
-- [x] 몬스터 동적 생성(랜덤한 위치에)
-- [x] 싱글턴 -> 이거는 더 공부해봐야할듯!
-- [ ] 풀링 -> 죽었을때 비활성화, 다시 부활
+- [ ]
 
 <hr>
 
@@ -175,7 +173,7 @@ if(lb >0)
 
 <h3>Animator(Generic, Humanoid)</h3>
 
-> 아바타 + 모션 적용(Join를 기반으로 유니티 내부에서 애니메이션을 적응)<br>
+> 아바타 + 모션 적용(Joint를 기반으로 유니티 내부에서 애니메이션을 적응)<br>
 > 오브젝트에 컨트롤러를 적용하고 컨트롤러에 모션 등록<br>
 > Finite State Machine(유한상태머신, FSM)의 형태로 구현<br>
 >
@@ -200,8 +198,7 @@ agent.SetDestination(playerTr.position); //에이전트를 움직임
 agent.isStopped = true; //움직임 멈춤?
 ```
 
-isKinematic : 물리엔진 계산 ㄴㄴ -> UseGravity도 같이 비활성화됨.
-isTrigger : 물리적 반동효과 ㄴㄴ
+
 
 ```
 public delegate void delgater(); -> 델리게이트를 관리하는 delgater 타입
@@ -225,3 +222,18 @@ OnPlayerDie();
 
 > 오브젝트와 카메라의 거리에 따라서 렌더링하는 메쉬를 변경<br>
 > LOD Group 컴포넌트<br>
+
+### Pooling
+> 캐릭터(오브젝트)를 미리 만들어놓고 필요할 때만 활성화, 재사용<br>
+> 동적 생성에 비해서 부하 감소.
+
+### Sigleton Pattern
+> 메모리에 정적 클래스 미리 할당, 생성, 유지<br>
+> public 요소를 다른 클래스에서 사용할 수 있다.<br>
+> 클래스가 너무 커지면, 필요한 메모리가 너무 커지거나, 프로그램이 너무 복잡해질 가능성이 있다.
+
+#### other
+> isKinematic : 물리엔진 계산 x -> UseGravity도 같이 비활성화됨.<br>
+> isTrigger : 물리적 반동효과 x<br>
+> gizmo : 사용자 정의 가능(스크립트 참조)
+> Resources 폴더 : Unity 예약폴더
