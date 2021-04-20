@@ -9,8 +9,8 @@
 - [ ]
 
 ✔ link
-[p1](#https://github.com/totohoon01/Unity_Basics_Recap#0405--0416)
-[p2](https://github.com/totohoon01/Unity_Basics_Recap#0420)
+- [p1](https://github.com/totohoon01/Unity_Basics_Recap#0405--0416)
+- [p2](https://github.com/totohoon01/Unity_Basics_Recap#0420)
 <hr>
 
 <h2>04/05 ~ 04/16</h2>
