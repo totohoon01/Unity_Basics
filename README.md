@@ -8,6 +8,9 @@
 
 - [ ]
 
+✔ link
+[p1](#https://github.com/totohoon01/Unity_Basics_Recap#0405--0416)
+[p2](https://github.com/totohoon01/Unity_Basics_Recap#0420)
 <hr>
 
 <h2>04/05 ~ 04/16</h2>
@@ -239,3 +242,19 @@ OnPlayerDie();
 > isTrigger : 물리적 반동효과 x<br>
 > gizmo : 사용자 정의 가능(스크립트 참조)
 > Resources 폴더 : Unity 예약폴더
+
+
+## 4/20 ~
+
+### 총알 생성 로직
+
+> - Projectile : 객체를 생성해서 사용
+> - RayCasting : 레이저 
+
+### Light Mapping Bake
+
+> - 실시간 조명 효과의 계산을 감소 
+> - 조명효과를 텍스쳐로 미리 생성
+> - 리얼 조명인것 처럼
+> #### Global Ilumination(GI)
+> - 
